@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeSubmitPrompt": [{ "command": "node .cursor/hooks/hook.mjs", "timeout": 5 }],
+    "beforeShellExecution": [{ "command": "node .cursor/hooks/hook.mjs", "timeout": 5, "failClosed": true }],
+    "beforeMCPExecution": [{ "command": "node .cursor/hooks/hook.mjs", "timeout": 5, "failClosed": true }],
+    "beforeReadFile": [{ "command": "node .cursor/hooks/hook.mjs", "timeout": 5, "failClosed": true }],
+    "afterShellExecution": [{ "command": "node .cursor/hooks/hook.mjs", "timeout": 5 }],
+    "afterMCPExecution": [{ "command": "node .cursor/hooks/hook.mjs", "timeout": 5 }],
+    "afterFileEdit": [{ "command": "node .cursor/hooks/hook.mjs", "timeout": 5 }],
+    "afterAgentResponse": [{ "command": "node .cursor/hooks/hook.mjs", "timeout": 5 }],
+    "stop": [{ "command": "node .cursor/hooks/hook.mjs", "timeout": 5 }]
+  }
+}

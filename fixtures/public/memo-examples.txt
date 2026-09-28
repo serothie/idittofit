@@ -1,0 +1,25 @@
+# 공개용 합성 예시: 같은 뜻을 여러 방식으로 쓴 메모 (파서 테스트 입력)
+# 한 줄 = 한 종목. 기대 결과는 tests에서 정의한다.
+
+FS 5x5 135#
+프론트스쿼트 5세트 5회 60kg
+front squat 5 sets of 5 @ 60 kg
+프스 60키로 5 5 5 5 5
+프론스쿼트 60 65 70 70 70 5회
+FS 60x5, 65x5, 70x5
+front sqaut 5x5 60
+back squat 5/5/5/3/3 @ 100kg
+DL 3x5 225 lb
+데드리프트 3세트 5회 100키로 파운드 아님
+풀업 5x8
+weighted pull up 5x5 +20kg
+band pull up 3x10
+bulgarian split squat 3x8/leg 20kg DB
+플랭크 3세트 1분
+러닝 5km 27:30
+run 3mi 26:10
+row 2000m 7:45
+rowing 30 cal
+box jump 5x5 24"
+EMOM 10 3 power clean 60kg
+AMRAP 12: 10 wall ball, 10 TTB -> 5라운드 + 7

@@ -1,0 +1,44 @@
+{"ts":"2026-09-28T13:24:54.078Z","event":"beforeShellExecution","conversation":"22b4109d","generation":"ecaaef5f","command":"ls ./docs"}
+{"ts":"2026-09-28T13:24:54.532Z","event":"afterShellExecution","conversation":"22b4109d","generation":"ecaaef5f","command":"ls ./docs"}
+{"ts":"2026-09-28T13:24:57.934Z","event":"beforeMCPExecution","conversation":"22b4109d","generation":"ecaaef5f","command":"supabase","tool":"list_projects"}
+{"ts":"2026-09-28T13:24:58.423Z","event":"afterMCPExecution","conversation":"22b4109d","generation":"ecaaef5f","tool":"list_projects"}
+{"ts":"2026-09-28T13:25:06.525Z","event":"beforeMCPExecution","conversation":"22b4109d","generation":"ecaaef5f","command":"supabase","tool":"list_tables"}
+{"ts":"2026-09-28T13:25:08.335Z","event":"afterMCPExecution","conversation":"22b4109d","generation":"ecaaef5f","tool":"list_tables"}
+{"ts":"2026-09-28T13:25:11.198Z","event":"stop","conversation":"22b4109d","generation":"ecaaef5f"}
+{"ts":"2026-09-28T13:28:04.587Z","event":"beforeShellExecution","conversation":"e7caae82","generation":"4bcc7291","command":"bash ./scripts/check-setup.sh --full"}
+{"ts":"2026-09-28T13:28:07.602Z","event":"afterShellExecution","conversation":"e7caae82","generation":"4bcc7291","command":"bash ./scripts/check-setup.sh --full"}
+{"ts":"2026-09-28T13:28:12.729Z","event":"beforeShellExecution","conversation":"e7caae82","generation":"4bcc7291","command":"cd . && git push --dry-run 2>&1","gate":"ask"}
+{"ts":"2026-09-28T13:28:12.729Z","event":"beforeShellExecution","conversation":"e7caae82","generation":"4bcc7291","command":"cd . && git status"}
+{"ts":"2026-09-28T13:28:13.105Z","event":"afterShellExecution","conversation":"e7caae82","generation":"4bcc7291","command":"cd . && git status"}
+{"ts":"2026-09-28T13:28:23.864Z","event":"afterShellExecution","conversation":"e7caae82","generation":"4bcc7291","command":"cd . && git push --dry-run 2>&1"}
+{"ts":"2026-09-28T13:28:34.260Z","event":"beforeMCPExecution","conversation":"e7caae82","generation":"4bcc7291","command":"supabase","tool":"list_projects"}
+{"ts":"2026-09-28T13:28:34.260Z","event":"beforeShellExecution","conversation":"e7caae82","generation":"4bcc7291","command":"cd . && node scripts/sanitize-logs.mjs 2>&1"}
+{"ts":"2026-09-28T13:28:34.559Z","event":"afterShellExecution","conversation":"e7caae82","generation":"4bcc7291","command":"cd . && node scripts/sanitize-logs.mjs 2>&1"}
+{"ts":"2026-09-28T13:28:34.786Z","event":"afterMCPExecution","conversation":"e7caae82","generation":"4bcc7291","tool":"list_projects"}
+{"ts":"2026-09-28T13:28:38.525Z","event":"beforeMCPExecution","conversation":"e7caae82","generation":"4bcc7291","command":"supabase","tool":"execute_sql","gate":"ask"}
+{"ts":"2026-09-28T13:28:38.525Z","event":"beforeMCPExecution","conversation":"e7caae82","generation":"4bcc7291","command":"supabase","tool":"list_tables"}
+{"ts":"2026-09-28T13:28:39.335Z","event":"afterMCPExecution","conversation":"e7caae82","generation":"4bcc7291","tool":"execute_sql"}
+{"ts":"2026-09-28T13:28:39.399Z","event":"afterMCPExecution","conversation":"e7caae82","generation":"4bcc7291","tool":"list_tables"}
+{"ts":"2026-09-28T13:28:49.213Z","event":"beforeShellExecution","conversation":"e7caae82","generation":"4bcc7291","command":"cd . && git check-ignore -v ai-logs/tools.jsonl .env.local .ai-logs/raw/test.jsonl fixtures/private/plans/sample-1/01-load-1.txt 2>&1; echo \"---\"; git ls-files --others --exclude-standard | head -80","gate":"deny"}
+{"ts":"2026-09-28T13:28:49.213Z","event":"beforeShellExecution","conversation":"e7caae82","generation":"4bcc7291","command":"cd . && node scripts/sanitize-logs.mjs 2>&1"}
+{"ts":"2026-09-28T13:28:49.533Z","event":"afterShellExecution","conversation":"e7caae82","generation":"4bcc7291","command":"cd . && node scripts/sanitize-logs.mjs 2>&1"}
+{"ts":"2026-09-28T13:29:13.991Z","event":"stop","conversation":"e7caae82","generation":"4bcc7291"}
+{"ts":"2026-09-28T13:30:41.201Z","event":"stop","conversation":"e7caae82","generation":"7f4c85bf"}
+{"ts":"2026-09-28T13:31:04.395Z","event":"stop","conversation":"e7caae82","generation":"82dc8f7e"}
+{"ts":"2026-09-28T13:31:50.418Z","event":"beforeShellExecution","conversation":"e7caae82","generation":"321f9c6d","command":"cd . && bash scripts/check-setup.sh --full 2>&1; echo \"---\"; git remote -v 2>&1; test -d .vercel && echo \"vercel dir: yes\" || echo \"vercel dir: no\"; git status -sb"}
+{"ts":"2026-09-28T13:31:52.144Z","event":"afterShellExecution","conversation":"e7caae82","generation":"321f9c6d","command":"cd . && bash scripts/check-setup.sh --full 2>&1; echo \"---\"; git remote -v 2>&1; test -d .vercel && echo \"vercel dir: yes\" || echo \"vercel dir: no\"; git status -sb"}
+{"ts":"2026-09-28T13:32:24.436Z","event":"afterFileEdit","conversation":"e7caae82","generation":"321f9c6d","file":"docs/plans/2026-09-28-ai-setup-check.md","edits":1}
+{"ts":"2026-09-28T13:32:24.606Z","event":"afterFileEdit","conversation":"e7caae82","generation":"321f9c6d","file":"scripts/check-setup.sh","edits":2}
+{"ts":"2026-09-28T13:32:24.614Z","event":"afterFileEdit","conversation":"e7caae82","generation":"321f9c6d","file":".cursor/hooks/redact.mjs","edits":1}
+{"ts":"2026-09-28T13:32:24.614Z","event":"afterFileEdit","conversation":"e7caae82","generation":"321f9c6d","file":"scripts/sanitize-logs.mjs","edits":1}
+{"ts":"2026-09-28T13:32:24.615Z","event":"afterFileEdit","conversation":"e7caae82","generation":"321f9c6d","file":".cursor/hooks/hook.mjs","edits":1}
+{"ts":"2026-09-28T13:32:24.619Z","event":"afterFileEdit","conversation":"e7caae82","generation":"321f9c6d","file":"app/api/ping/route.ts","edits":1}
+{"ts":"2026-09-28T13:32:31.317Z","event":"stop","conversation":"e7caae82","generation":"321f9c6d"}
+{"ts":"2026-09-28T13:33:48.797Z","event":"beforeShellExecution","conversation":"e7caae82","generation":"9bbdbaa1","command":"cd . && git status && echo \"---\" && bash scripts/check-setup.sh 2>&1 | tail -5"}
+{"ts":"2026-09-28T13:33:49.900Z","event":"afterShellExecution","conversation":"e7caae82","generation":"9bbdbaa1","command":"cd . && git status && echo \"---\" && bash scripts/check-setup.sh 2>&1 | tail -5"}
+{"ts":"2026-09-28T13:33:53.627Z","event":"stop","conversation":"e7caae82","generation":"9bbdbaa1"}
+{"ts":"2026-09-28T13:34:05.352Z","event":"beforeShellExecution","conversation":"e7caae82","generation":"2ed51947","command":"cd . && git status && git diff --stat"}
+{"ts":"2026-09-28T13:34:05.664Z","event":"afterShellExecution","conversation":"e7caae82","generation":"2ed51947","command":"cd . && git status && git diff --stat"}
+{"ts":"2026-09-28T13:34:12.363Z","event":"beforeShellExecution","conversation":"e7caae82","generation":"2ed51947","command":"cd . && node scripts/sanitize-logs.mjs 2>&1"}
+{"ts":"2026-09-28T13:34:12.532Z","event":"afterFileEdit","conversation":"e7caae82","generation":"2ed51947","file":".cursor/hooks/redact.mjs","edits":1}
+{"ts":"2026-09-28T13:34:12.532Z","event":"afterFileEdit","conversation":"e7caae82","generation":"2ed51947","file":"scripts/sanitize-logs.mjs","edits":1}

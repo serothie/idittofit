@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -39,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI 로그 원본과 가릴 단어 목록 (공개용은 ai-logs/에 따로 생성)
+.ai-logs/
+
+# 코치가 쓴 플랜 원문 (공개 허락 전까지)
+fixtures/private/
