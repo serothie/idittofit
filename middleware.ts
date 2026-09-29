@@ -6,7 +6,18 @@ export async function middleware(request: NextRequest) {
 
   const path = request.nextUrl.pathname;
   const isProtected =
-    path.startsWith("/plan") || path.startsWith("/api/plan");
+    path.startsWith("/plan") ||
+    path.startsWith("/api/plan") ||
+    path.startsWith("/today") ||
+    path.startsWith("/week") ||
+    path.startsWith("/memo") ||
+    path.startsWith("/settings") ||
+    path.startsWith("/history") ||
+    path.startsWith("/api/log") ||
+    path.startsWith("/api/athlete") ||
+    path.startsWith("/api/recommend") ||
+    path.startsWith("/api/history") ||
+    path.startsWith("/api/memo");
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -49,12 +60,26 @@ export async function middleware(request: NextRequest) {
   }
 
   if (path === "/login" && user) {
-    return NextResponse.redirect(new URL("/plan/import", request.url));
+    return NextResponse.redirect(new URL("/today", request.url));
   }
 
   return response;
 }
 
 export const config = {
-  matcher: ["/plan/:path*", "/api/plan/:path*", "/login"],
+  matcher: [
+    "/plan/:path*",
+    "/api/plan/:path*",
+    "/today",
+    "/week",
+    "/memo",
+    "/settings",
+    "/history",
+    "/api/log/:path*",
+    "/api/athlete/:path*",
+    "/api/recommend/:path*",
+    "/api/history",
+    "/api/memo/:path*",
+    "/login",
+  ],
 };

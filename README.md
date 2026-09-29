@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# idittofit
 
-## Getting Started
+플랜 TXT · 오늘 기록 · 추천 무게 · 다음 주 생성 (1주차 MVP).
 
-First, run the development server:
+## 로컬
 
 ```bash
+npm install
+cp .env.example .env.local  # GEMINI_API_KEY, Supabase, PING_TOKEN
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Google 로그인: [docs/setup-google-auth.md](docs/setup-google-auth.md)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 주요 URL
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| 경로 | 설명 |
+|------|------|
+| `/today` | 오늘 플랜 · 기록 |
+| `/week` | 월~토 주간 |
+| `/plan/import` | 플랜 TXT 파싱 |
+| `/plan/generate` | AI 다음 주 TXT |
+| `/memo` | 메모 규칙 파서 + AI |
+| `/settings` | 1RM · 추천 설정 |
+| `/history` | 종목별 PR 차트 |
 
-## Learn More
+## 스크립트
 
-To learn more about Next.js, take a look at the following resources:
+- `npm test` — Vitest
+- `npm run build` — pre-commit과 동일
+- `bash scripts/check-setup.sh --full`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 배포
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Vercel + Supabase. env: `NEXT_PUBLIC_SUPABASE_*`, `GEMINI_API_KEY`, `PING_TOKEN`.

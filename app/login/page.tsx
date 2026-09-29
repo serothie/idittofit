@@ -43,7 +43,11 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center p-6">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-muted/30 to-background p-6">
+      <div className="mb-8 text-center">
+        <p className="text-lg font-semibold">idittofit</p>
+        <p className="text-sm text-muted-foreground">플랜 · 기록</p>
+      </div>
       <Suspense>
         <LoginForm />
       </Suspense>

@@ -65,6 +65,15 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "요일 저장 실패" }, { status: 500 });
     }
 
+    const { error: clearPartsError } = await supabase
+      .from("plan_parts")
+      .delete()
+      .eq("plan_day_id", planDay.id);
+    if (clearPartsError) {
+      console.error("[plan/save] clear plan_parts", clearPartsError.message);
+      return NextResponse.json({ error: "기존 파트 삭제 실패" }, { status: 500 });
+    }
+
     let sort = 0;
     for (const part of day.parts) {
       const { data: planPart, error: partError } = await supabase
