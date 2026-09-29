@@ -11,6 +11,7 @@ for f in \
   CLAUDE.md AGENTS.md README.md .gitignore .cursorignore \
   docs/PLAN.md docs/reference/notation-ataraxia.md docs/reference/program-samples.md \
   .cursor/hooks.json .cursor/hooks/hook.mjs .cursor/hooks/redact.mjs \
+  .husky/pre-commit scripts/pre-commit.sh \
   .cursor/rules/workflow.mdc \
   .cursor/agents/researcher.md .cursor/agents/planner.md .cursor/agents/reviewer.md \
   fixtures/public/memo-examples.txt scripts/sanitize-logs.mjs \

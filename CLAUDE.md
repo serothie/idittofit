@@ -61,4 +61,4 @@
 - 실명, 이메일, 비밀값, 개인 경로를 코드·문서·로그·커밋 메시지에 넣지 않는다
 - `.env*`와 `.ai-logs/raw/`는 읽지 않는다 (`.env*` 읽기는 훅으로 차단됨)
 - `fixtures/private/`는 읽을 수 있지만 커밋하지 않는다 (gitignore)
-- 공개용 AI 로그는 `node scripts/sanitize-logs.mjs`로 만든 `ai-logs/`만 커밋한다
+- 공개용 AI 로그는 `node scripts/sanitize-logs.mjs`로 만든 `ai-logs/`만 커밋한다. pre-commit이 sanitize·스테이징·`tsc`·`next build`를 실행한다

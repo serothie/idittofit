@@ -139,7 +139,7 @@ Next.js + TypeScript + Tailwind + shadcn/ui, Vercel 배포, Supabase(DB·인증)
 
 - 흐름: researcher 조사 → planner 계획 → 사용자 승인 → 메인 에이전트 구현 → reviewer 검토 → 사용자 확인 후 커밋 (`.cursor/rules/workflow.mdc`)
 - 위험 명령과 DB 변경은 훅이 실행 전에 확인을 받고, `.env*` 읽기는 훅이 막는다
-- 원본 로그는 `.ai-logs/raw/`(gitignore)에 쌓이고, 공개용은 `scripts/sanitize-logs.mjs`로 민감 정보를 지운 뒤 `ai-logs/`에 만든다
+- 원본 로그는 `.ai-logs/raw/`(gitignore)에 쌓이고, 공개용은 `scripts/sanitize-logs.mjs`로 민감 정보를 지운 뒤 `ai-logs/`에 만든다. **pre-commit**에서 sanitize·`ai-logs/` 스테이징·`tsc`·`next build`를 실행한다
 - 매주 일요일 로그를 보고 CLAUDE.md, 규칙, 서브에이전트 지시를 고친다
 
 ## 위험과 대응, 나중에 볼 것

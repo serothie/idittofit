@@ -19,8 +19,8 @@ mkdirSync(outDir, { recursive: true });
 
 const shortId = (id) => (id ? createHash("sha256").update(id).digest("hex").slice(0, 8) : undefined);
 const SUSPICIOUS = [
-  /AIza/,
-  /eyJ[A-Za-z0-9_-]{20,}/,
+  /AIza[0-9A-Za-z_-]{20,}/,
+  /eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}/,
   /@[A-Za-z0-9-]+\.[a-z]{2,}/,
   /\/Users\//,
   /\/home\//,
