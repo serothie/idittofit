@@ -28,6 +28,7 @@ export function makeRedactor(root) {
       .replace(/\b[a-z][a-z0-9]{19}\b/g, "[PROJECT_REF]")
       .replace(/postgres(ql)?:\/\/[^\s"']+/g, "[DB_URL]")
       .replace(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g, "[EMAIL]")
+      .replace(/\/@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g, "/@[HOST]")
       .replace(/\b01[016789]-?\d{3,4}-?\d{4}\b/g, "[PHONE]")
       .replace(/(\/Users|\/home)\/[^/\s"']+/g, "~")
       .replace(/C:\\Users\\[^\\\s"']+/gi, "~");

@@ -53,8 +53,10 @@ done
 TMP=$(mktemp -d)
 out=$(echo "{\"hook_event_name\":\"beforeShellExecution\",\"command\":\"git push\",\"workspace_roots\":[\"$TMP\"]}" | node .cursor/hooks/hook.mjs 2>&1)
 echo "$out" | grep -q '"ask"' && ok "git push → 확인 요청" || bad "git push 확인 요청 안 됨: $out"
-out=$(echo "{\"hook_event_name\":\"beforeReadFile\",\"file_path\":\"$TMP/.env.local\",\"workspace_roots\":[\"$TMP\"]}" | node .cursor/hooks/hook.mjs 2>&1)
+out=$(echo "{\"hook_event_name\":\"beforeReadFile\",\"file_path\":\"$TMP/.env\",\"workspace_roots\":[\"$TMP\"]}" | node .cursor/hooks/hook.mjs 2>&1)
 echo "$out" | grep -q '"deny"' && ok ".env 읽기 차단" || bad ".env 읽기 차단 안 됨: $out"
+out=$(echo "{\"hook_event_name\":\"beforeReadFile\",\"file_path\":\"$TMP/.env.local\",\"workspace_roots\":[\"$TMP\"]}" | node .cursor/hooks/hook.mjs 2>&1)
+echo "$out" | grep -q '"allow"' && ok ".env.local 읽기 허용" || bad ".env.local 허용 안 됨: $out"
 echo "{\"hook_event_name\":\"beforeSubmitPrompt\",\"prompt\":\"AIzaSyA1234567890abcdefghijkl test@example.com\",\"workspace_roots\":[\"$TMP\"]}" | node .cursor/hooks/hook.mjs >/dev/null 2>&1
 if grep -q "AIza\|test@example.com" "$TMP/.ai-logs/raw/prompts.jsonl" 2>/dev/null; then bad "로그에 키·이메일이 그대로 남음"
 elif [ -f "$TMP/.ai-logs/raw/prompts.jsonl" ]; then ok "로그 기록 + 민감 정보 가림"
@@ -62,7 +64,7 @@ else bad "로그 파일이 안 생김"; fi
 rm -rf "$TMP"
 
 echo "6. 환경변수 (값은 출력 안 함)"
-for k in GEMINI_API_KEY PING_TOKEN NEXT_PUBLIC_SUPABASE_URL; do
+for k in GEMINI_API_KEY PING_TOKEN NEXT_PUBLIC_SUPABASE_URL NEXT_PUBLIC_SUPABASE_ANON_KEY; do
   grep -qE "^$k=.+" .env.local 2>/dev/null && ok "$k 있음" || bad "$k 없음 (.env.local)"
 done
 [ -f app/api/ping/route.ts ] && ok "/api/ping 라우트" || bad "app/api/ping/route.ts 없음"

@@ -20,7 +20,12 @@ const rel = (p) => (p && isAbsolute(p) ? relative(root, p) : p);
 const RISKY_SHELL = [/git\s+push/, /git\s+reset\s+--hard/, /rm\s+-rf/, /supabase\s+db\s+(reset|push)/, /vercel\s+.*--prod/];
 
 // 셸로 비밀 파일을 직접 여는 것도 막는다 (파일 읽기 훅은 셸 명령을 거치지 않음)
-const SECRET_SHELL = [/(^|[\s'"/=])\.env(\.[\w-]+)?(\s|$|['"])/, /\.ai-logs\/raw/, /denylist\.txt/];
+// .env.local 읽기·source는 허용 (운영 env 동기화). 그 외 .env* 셸 접근은 차단
+const SECRET_SHELL = [
+  /(^|[\s'"/=])\.env(?!\.local)(\.[\w-]+)?(\s|$|['"])/,
+  /\.ai-logs\/raw/,
+  /denylist\.txt/,
+];
 
 // MCP는 "조회 도구만 통과, 나머지는 전부 확인"으로 판단한다 (위험 목록을 늘리는 것보다 빈틈이 적다)
 const mcpName = (name = "") => name.split(/__|\.|:|\//).pop().toLowerCase();
@@ -29,7 +34,11 @@ const MCP_SECRET = /token|secret|api[_-]?key|keys|credential|env/; // 조회라�
 const MCP_DENY = /^buy[_-]|confirm_cost|create_api_keys/; // 비용·키 발급은 아예 막음
 
 // AI가 읽으면 안 되는 파일
-const SECRET_FILES = [/(^|\/)\.env(\..*)?$/, /(^|\/)\.ai-logs\/raw\//, /denylist\.txt$/];
+const SECRET_FILES = [
+  /(^|\/)\.env(?!\.local)(\.[\w-]+)?$/,
+  /(^|\/)\.ai-logs\/raw\//,
+  /denylist\.txt$/,
+];
 
 let decision = null;
 if (event === "beforeShellExecution") {

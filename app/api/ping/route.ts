@@ -3,7 +3,8 @@ import { type NextRequest, NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
-const PING_MODEL = "gemini-2.5-flash-lite";
+/** 무료 티어 경량 모델. 2.5-flash-lite는 신규 키에서 404 → flash-lite-latest 또는 3.x lite */
+const PING_MODEL = process.env.GEMINI_PING_MODEL ?? "gemini-flash-lite-latest";
 const PING_PROMPT = "한 문장으로 '연결됨'이라고만 답해.";
 
 function unauthorized() {
