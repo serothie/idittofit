@@ -33,10 +33,10 @@
 매일 저녁 배포된 상태로 끝내고, 다음 날 아침 운동하면서 써보고 오후에 고친다.
 
 **월**
-- [ ] Next.js 프로젝트 생성, GitHub 푸시, Vercel 배포
-- [ ] Gemini 키 발급, 서버에서 호출 확인 (`/api/ping`)
-- [ ] Supabase 프로젝트 생성
-- [ ] 샘플 플랜을 `fixtures/private/plans/`에, 표기 규칙을 `docs/reference/`에 정리
+- [x] Next.js 프로젝트 생성, GitHub 푸시, Vercel 배포
+- [x] Gemini 키 발급, 서버에서 호출 확인 (`/api/ping`, `Authorization: Bearer $PING_TOKEN`)
+- [x] Supabase 프로젝트 생성
+- [x] 샘플 플랜을 `fixtures/private/plans/`에, 표기 규칙을 `docs/reference/`에 정리
 
 **화**
 - [ ] 스키마: athletes, exercises(측정 방식 포함), exercise_aliases, plan_days, plan_parts, planned_entries, logged_sets(여러 측정값), parse_results(AI 결과와 수정본), 설정

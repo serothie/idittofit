@@ -61,13 +61,16 @@ else bad "로그 파일이 안 생김"; fi
 rm -rf "$TMP"
 
 echo "6. 환경변수 (값은 출력 안 함)"
-for k in GEMINI_API_KEY NEXT_PUBLIC_SUPABASE_URL; do
+for k in GEMINI_API_KEY PING_TOKEN NEXT_PUBLIC_SUPABASE_URL; do
   grep -qE "^$k=.+" .env.local 2>/dev/null && ok "$k 있음" || bad "$k 없음 (.env.local)"
 done
+[ -f app/api/ping/route.ts ] && ok "/api/ping 라우트" || bad "app/api/ping/route.ts 없음"
 grep -qE "^NEXT_PUBLIC_GEMINI" .env.local 2>/dev/null && bad "Gemini 키에 NEXT_PUBLIC_이 붙어 있음 (브라우저 노출)" || ok "Gemini 키 서버 전용"
 
 echo "7. 비밀값 커밋 기록"
-git log -p --all 2>/dev/null | grep -qE "AIza[0-9A-Za-z_-]{20,}|eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}" \
+# check-setup.sh 자체의 훅 테스트용 가짜 키 문자열은 제외
+git log -p --all -- . ':(exclude)scripts/check-setup.sh' 2>/dev/null \
+  | grep -qE "AIza[0-9A-Za-z_-]{20,}|eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}" \
   && bad "커밋 기록에 키로 보이는 값이 있음 (공개 전 반드시 처리)" || ok "커밋 기록에 키 없음"
 
 if [ "$1" = "--full" ]; then
